@@ -16,10 +16,10 @@ import com.educandoweb.course.entities.Product;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.entities.repositories.CategoryRepository;
+import com.educandoweb.course.entities.repositories.OrderItemRepository;
 import com.educandoweb.course.entities.repositories.OrderRepository;
 import com.educandoweb.course.entities.repositories.ProductRepository;
 import com.educandoweb.course.entities.repositories.UserRepository;
-import com.educandoweb.course.repositories.OrderItemRepository;
 
 
 @Configuration
@@ -81,7 +81,7 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
-		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));	
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		o1.setPayment(pay1);
@@ -89,3 +89,4 @@ public class TestConfig implements CommandLineRunner {
 		orderRepository.save(o1);
 	}
 }
+
